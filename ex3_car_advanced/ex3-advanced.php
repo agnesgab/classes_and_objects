@@ -7,7 +7,7 @@ require_once 'Accumulator.php';
 require_once 'Car.php';
 
 
-$name = readline('Car name: ');
+$name = readline('ex3_car_advanced name: ');
 $fuelGaugeAmount = (int)readline('Fuel Gauge amount: ');
 $accumulator = (int)readline('Accumulator percentage: ');
 $driveDistance = (int)readline('Drive distance: ');
