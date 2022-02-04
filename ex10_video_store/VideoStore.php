@@ -5,7 +5,7 @@ class VideoStore
 
     public array $allVideos;
 
-    public function addVideo(Video $video):Video
+    public function addVideo(Video $video): Video
     {
         return $this->allVideos[] = $video;
     }
@@ -19,14 +19,13 @@ class VideoStore
     }
 
 
-
     public function listAllVideos(): void
     {
         foreach ($this->allVideos as $video) {
 
             echo "--------------------" . PHP_EOL;
             echo "Title: {$video->getTitle()}" . PHP_EOL;
-            echo "Average rating: {$video->getRating()}" . PHP_EOL;
+            echo "Average rating: {$video->returnRating()}" . PHP_EOL;
             if ($video->getAvailability()) {
                 echo "Available" . PHP_EOL;
             } else {

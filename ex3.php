@@ -24,7 +24,7 @@ class FuelGauge
             $input = (int)readline('L: ');
             $fuelSum = $input + $this->fuel;
             while ($this->fuel < $fuelSum) {
-                //sleep(1);
+                sleep(1);
                 echo $this->fuel++ . '-';
             }
             return $this->fuel;

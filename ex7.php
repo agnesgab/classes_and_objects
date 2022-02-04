@@ -68,11 +68,11 @@ class DogTest
         }
     }
 
-    public function hasTheSameMother(Dog $dog1, Dog $dog2): bool
+    public function hasTheSameMother(Dog $dogA, Dog $dogB): bool
     {
 
-        if ($dog1->mothersName() === $dog2->mothersName()) {
-            echo "{$dog1->getDogsName()} has the same mother as {$dog2->getDogsName()}" . PHP_EOL;
+        if ($dogA->mothersName() === $dogB->mothersName()) {
+            echo "{$dogA->getDogsName()} has the same mother as {$dogB->getDogsName()}" . PHP_EOL;
             return true;
         }
         return false;
@@ -104,5 +104,8 @@ $test->addDogs($h);
 
 $test->printDogsInfo();
 echo '======' . PHP_EOL;
+//TEST:
 $test->hasTheSameMother($a, $d);
+$test->hasTheSameMother($b, $d);
+
 

@@ -7,6 +7,7 @@ class Video
     public bool $availability;
     public float $rating;
     public int $count;
+    public array $allRatings;
 
     /**
      * @param string $title
@@ -49,21 +50,26 @@ class Video
         return $this->availability = !$this->availability;
     }
 
-    /** @param float * */
-    public function receiveRating()
+
+    public function receiveRating($input)
     {
-        return $this->rating = (int)readline('Rating: ') + $this->rating;
+        return $this->rating = $input + $this->rating;
 
     }
 
-
-    public function addCount(){
-        return $this->count += 1;
+    public function setRating($input)
+    {
+        return $this->allRatings[] = $input;
     }
 
-    public function getAverageRating(){
-        return $this->rating/$this->addCount();
+    public function returnRating()
+    {
+        if (isset($this->a)) {
+            return array_sum($this->allRatings) / count($this->allRatings);
+        }
+        return $this->getRating();
     }
+
 
 
 }

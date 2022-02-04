@@ -63,19 +63,20 @@ while (true) {
 
 
             foreach ($store->getAllVideos() as $index => $video) {
+
                 echo "[$index] {$video->getTitle()}" . PHP_EOL;
-                echo "Rating: {$video->getRating()}" . PHP_EOL;
+                echo "Rating: {$video->returnRating()}" . PHP_EOL;
                 echo "-----------------" . PHP_EOL;
+
             }
 
 
             echo "Choose to add rating" . PHP_EOL;
             $selectedVideoIndex = (int)readline('Select: ');
 
-            $count = $store->getAllVideos()[$selectedVideoIndex]->addCount() . PHP_EOL;
+            $ratingInput = (int)readline('Add rating (1-5): ');
 
-            echo $store->getAllVideos()[$selectedVideoIndex]->receiveRating() / $count . PHP_EOL;
-            //viss notiek, bet katru reizi atgriež rating summu, not ok
+            $store->getAllVideos()[$selectedVideoIndex]->setRating($ratingInput);
 
 
             echo "Rating saved!";
