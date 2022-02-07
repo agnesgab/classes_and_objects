@@ -39,6 +39,9 @@ while (true) {
                 $selectedVideoIndex = (int)readline('Select: ');
                 $store->getAllVideos()[$selectedVideoIndex]->checkout();
 
+            } else {
+                echo "Nothing available yet" . PHP_EOL;
+                break;
             }
 
             break;
