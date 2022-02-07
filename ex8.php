@@ -47,12 +47,13 @@ $balance = (float)readline('How much money is in the account?: ');
 $interestRate = (float)readline('Enter the annual interest rate: ');
 $months = (int)readline('How long has the account been opened? ');
 
-$account = new SavingsAccount($balance, $interestRate, $months, 'Agnese');
+$account = new SavingsAccount($balance, $interestRate, $months);
 $totalDeposited = 0;
 $totalWithdrawn = 0;
 $totalInterestEarned = 0;
 $total = 0;
 $currentBalance = $account->getBalance();
+$rate = $account->getMonthlyInterest();
 
 
 for ($i = 1; $i <= $months; $i++) {
@@ -69,18 +70,20 @@ for ($i = 1; $i <= $months; $i++) {
     $totalWithdrawn += $withdrawal;
     echo PHP_EOL;
 
+    //currentBalance bez %
     $currentBalance += $deposit - $withdrawal;
-    $rate = $account->getMonthlyInterest();
-    $currentBalance += $currentBalance * $rate;
 
-    $total += $currentBalance;
+    $interest = $currentBalance * $rate;
+    $totalInterestEarned += $interest;
 
+    //currentBalance ar %
+    $currentBalance += $interest;
 
 
 
 }
 
-$totalInterestEarned = $total - $currentBalance;
+$total = ($balance + $totalDeposited - $totalWithdrawn) + $totalInterestEarned;
 
 echo "Total deposited: $" . $totalDeposited . PHP_EOL;
 echo "Total withdrawn: $" . $totalWithdrawn . PHP_EOL;

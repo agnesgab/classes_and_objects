@@ -64,7 +64,7 @@ class Video
 
     public function returnRating()
     {
-        if (isset($this->a)) {
+        if (isset($this->allRatings)) {
             return array_sum($this->allRatings) / count($this->allRatings);
         }
         return $this->getRating();
