@@ -38,6 +38,8 @@ while (true) {
                 echo "Which one you would like to rent?" . PHP_EOL;
                 $selectedVideoIndex = (int)readline('Select: ');
                 $store->getAllVideos()[$selectedVideoIndex]->checkout();
+                echo PHP_EOL;
+                echo $store->getAllVideos()[$selectedVideoIndex]->getTitle() . " rented!" . PHP_EOL;
 
             } else {
                 echo "Nothing available yet" . PHP_EOL;
@@ -56,7 +58,9 @@ while (true) {
 
             echo "Which one you would like to return?" . PHP_EOL;
             $selectedVideoIndex = (int)readline('Select: ');
+            echo PHP_EOL;
             $store->getAllVideos()[$selectedVideoIndex]->returnBack();
+            echo $store->getAllVideos()[$selectedVideoIndex]->getTitle() . " retruned!" . PHP_EOL;
 
             break;
         case 4:
@@ -81,7 +85,7 @@ while (true) {
 
             $store->getAllVideos()[$selectedVideoIndex]->setRating($ratingInput);
 
-
+            echo PHP_EOL;
             echo "Rating saved!";
             break;
         default:
